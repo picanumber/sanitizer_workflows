@@ -1,8 +1,12 @@
 #include <gtest/gtest.h>
 
-TEST(TestUndefinedBehaviorSanitizer, UseUninitialized)
+TEST(TestUndefinedBehaviorSanitizer, FloatDivedByZero)
 {
-    auto d = new double;
+    float nom = 12.;
+    float denom = 0;
 
-    delete d;
+    auto k = nom / denom;
+    (void)k;
+
+    EXPECT_EQ(nom, 12);
 }
