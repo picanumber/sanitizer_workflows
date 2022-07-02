@@ -1,8 +1,18 @@
 #include <gtest/gtest.h>
 
+#include <future>
+
 TEST(TestThreadSanitizer, DataRace)
 {
-    auto d = new double;
+    int val = 0;
+    auto task = std::async([&val] {
+        int i(0);
+        while (i++ < 1'000)
+        {
+            ++val;
+        }
+    });
 
-    delete d;
+    EXPECT_LE(val, 1'000);
+    task.get();
 }
