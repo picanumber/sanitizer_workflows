@@ -37,7 +37,7 @@ jobs:
         cmake --build build --target install --config Release
 
     - name: configure
-      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -DCMAKE_CXX_FLAGS="-fsanitize=undefined -g" -DCMAKE_C_FLAGS="-fsanitize=undefined -g" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=undefined" -DCMAKE_MODULE_LINKER_FLAGS="-fsanitize=undefined"
+      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -DCMAKE_CXX_FLAGS="-fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=signed-integer-overflow -g" -DCMAKE_C_FLAGS="-fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=signed-integer-overflow -g" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=signed-integer-overflow" -DCMAKE_MODULE_LINKER_FLAGS="-fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=signed-integer-overflow"
       
     - name: build
       run: cmake --build build --config $BUILD_TYPE -j4
