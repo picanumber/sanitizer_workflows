@@ -20,9 +20,17 @@ AddressSanitizer is a fast memory error detector. It consists of a compiler inst
 * Double-free, invalid free
 * Memory leaks
 
-To use the address sanitizer workflow:
+To use the address sanitizer workflow, add a `.github/workflows/asan.yml` file to your repository with the following contents:
 
 ```yaml
+name: Memory
+
+on:
+  workflow_dispatch:
+
+jobs:
+  address_sanitizer:
+    uses: picanumber/sanitizer_workflows/.github/workflows/asan.yml@main
 ```
 
 [Example address sanitizer failure](https://github.com/picanumber/sanitizer_workflows/runs/7161397146?check_suite_focus=true#step:7:37) and [the change that triggered it](https://github.com/picanumber/sanitizer_workflows/pull/1/commits/4a75bcf82f516fe51557ff42cbbde4ef33238f2a)
@@ -31,9 +39,17 @@ To use the address sanitizer workflow:
 
 ThreadSanitizer is a tool that detects data races. It consists of a compiler instrumentation module and a run-time library.
 
-To use the thread sanitizer workflow:
+To use the thread sanitizer workflow, add a `.github/workflows/tsan.yml` file to your repository with the following contents:
 
 ```yaml
+name: Threading
+
+on:
+  workflow_dispatch:
+
+jobs:
+  address_sanitizer:
+    uses: picanumber/sanitizer_workflows/.github/workflows/tsan.yml@main  
 ```
 
 [Example thread sanitizer failure](https://github.com/picanumber/sanitizer_workflows/runs/7161765319?check_suite_focus=true#step:7:48) and [the change that triggered it](https://github.com/picanumber/sanitizer_workflows/pull/2/commits/cc83fc8f802e39793aff6ab17b33a9ef83055cdd)
