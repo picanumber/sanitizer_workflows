@@ -59,3 +59,8 @@ jobs:
 ```
 
 Of course you are free to specify a different name and workflow trigger. [Example thread sanitizer failure](https://github.com/picanumber/sanitizer_workflows/runs/7161765319?check_suite_focus=true#step:7:48) and [the change that triggered it](https://github.com/picanumber/sanitizer_workflows/pull/2/commits/cc83fc8f802e39793aff6ab17b33a9ef83055cdd)
+
+## Examples and documentation
+
+* The [yapp repository](https://github.com/picanumber/yapp) uses these workflows, since it heavily depends on multi-threading integrity.
+* You can read an introductory post on the scope of this project [here]().
