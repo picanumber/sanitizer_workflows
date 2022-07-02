@@ -1,4 +1,4 @@
-name: Memory
+name: UB
 
 on:
   push:
