@@ -3,6 +3,5 @@
 TEST(TestAddressSanitizer, MemoryLeak)
 {
     auto d = new double;
-
-    delete d;
+    (void)d;
 }
