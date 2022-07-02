@@ -36,7 +36,8 @@ To use the thread sanitizer workflow:
 
 ```yaml
 ```
-[Example thread sanitizer failure]()
+
+[Example thread sanitizer failure](https://github.com/picanumber/sanitizer_workflows/runs/7161765319?check_suite_focus=true#step:7:48)
 
 ## [Undefined behavior sanitizer](https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html)
 
