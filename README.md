@@ -56,7 +56,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  address_sanitizer:
+  thread_sanitizer:
     uses: picanumber/sanitizer_workflows/.github/workflows/tsan.yml@main  
 ```
 
