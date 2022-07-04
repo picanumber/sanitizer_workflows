@@ -48,5 +48,5 @@ jobs:
 
     - name: run tests
       run: |
-        cd build/test
+        cd build/${{ inputs.testDir }}
         ctest -C $BUILD_TYPE -VV
