@@ -5,7 +5,7 @@ on:
     inputs: 
       testDir:
         description: 'Name of the test directory'
-        default: 'test'
+        default: 'tests'
         required: false
         type: string
       # TODO(picanumber): Specify testing framework

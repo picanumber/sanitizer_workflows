@@ -34,6 +34,8 @@ on:
 jobs:
   address_sanitizer:
     uses: picanumber/sanitizer_workflows/.github/workflows/asan.yml@main
+    with:
+      testDir: 'tests' # Optional, default value is 'tests'
 ```
 
 Of course you are free to specify a different name and workflow trigger. 
@@ -58,6 +60,8 @@ on:
 jobs:
   thread_sanitizer:
     uses: picanumber/sanitizer_workflows/.github/workflows/tsan.yml@main  
+    with:
+      testDir: 'tests' # Optional, default value is 'tests'
 ```
 
 Of course you are free to specify a different name and workflow trigger. 
