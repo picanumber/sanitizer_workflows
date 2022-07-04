@@ -70,5 +70,5 @@ Here is an [example thread sanitizer failure](https://github.com/picanumber/sani
 
 ## Examples and documentation
 
-* The [yapp repository](https://github.com/picanumber/yapp) uses these workflows, since it heavily depends on multi-threading integrity.
-* You can read an introductory post on the scope of this project [here]().
+* The [yapp library](https://github.com/picanumber/yapp) uses these workflows, since it heavily depends on multi-threading integrity.
+* You can read an introductory post on the scope of this project [here](https://ngathanasiou.wordpress.com/2022/07/04/sanitizers-in-continuous-integration/).
