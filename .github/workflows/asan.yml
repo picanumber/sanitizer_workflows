@@ -2,7 +2,13 @@ name: Memory
 
 on:
   workflow_call:
-    # inputs: TODO(picanumber): Specify testing framework
+    inputs: 
+      testDir:
+        description: 'Name of the test directory'
+        default: 'test'
+        required: false
+        type: string
+      # TODO(picanumber): Specify testing framework
 
 env:
   BUILD_TYPE: Release
@@ -42,5 +48,5 @@ jobs:
 
     - name: run tests
       run: |
-        cd build/test
+        cd build/${{ inputs.testDir }}
         ctest -C $BUILD_TYPE -VV
