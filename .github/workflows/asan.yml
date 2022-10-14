@@ -8,7 +8,16 @@ on:
         default: 'tests'
         required: false
         type: string
-      # TODO(picanumber): Specify testing framework
+      compiler_package:
+        description: 'pkg name of the compiler to install, e.g. clang-12'
+        default: 'g++-11'
+        required: false
+        type: string
+      compiler_name:
+        description: 'name of the compiler executable, e.g. clang++-12'
+        default: 'g++-11'
+        required: false
+        type: string
 
 env:
   BUILD_TYPE: Release
@@ -22,7 +31,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      
+
+    - name: Install compiler
+      run: |
+        sudo apt update
+        sudo apt install -y ${{ inputs.compiler_package }}
+
     - name: cache dependencies
       uses: actions/cache@v2
       id: cache
@@ -41,6 +55,8 @@ jobs:
         cmake --build build --target install --config Release
 
     - name: configure
+      env:
+        CXX: ${{ inputs.compiler_name }}
       run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -DCMAKE_CXX_FLAGS="-fsanitize=address -g" -DCMAKE_C_FLAGS="-fsanitize=address -g" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address" -DCMAKE_MODULE_LINKER_FLAGS="-fsanitize=address"
       
     - name: build
